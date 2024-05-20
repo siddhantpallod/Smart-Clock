@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "author": "Siddhant Pallod",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -165.78, "left": 301.24, "attrs": {} },
+    { "type": "wokwi-ds1307", "id": "rtc1", "top": -141.68, "left": 176.73, "attrs": {} },
+    { "type": "wokwi-ky-040", "id": "encoder1", "top": -100.22, "left": 653.73, "attrs": {} },
+    {
+      "type": "wokwi-lcd2004",
+      "id": "lcd1",
+      "top": -392,
+      "left": 205.34,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -439.2,
+      "left": -17.4,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "rtc1:GND", "uno:GND.2", "black", [ "h-37.88", "v252.67", "h366.78" ] ],
+    [ "rtc1:5V", "uno:5V", "red", [ "h-49.57", "v269.64", "h52.14" ] ],
+    [ "rtc1:SDA", "uno:A4", "green", [ "h-10.01", "v207.1", "h382.06" ] ],
+    [ "rtc1:SCL", "uno:A5", "gold", [ "h-30.69", "v180.52", "h451.28" ] ],
+    [ "encoder1:CLK", "uno:2", "magenta", [ "h22.84", "v-110.81", "h-249.19" ] ],
+    [ "encoder1:DT", "uno:3", "yellow", [ "h31.86", "v-145.12", "h-272.86" ] ],
+    [ "encoder1:SW", "uno:4", "cyan", [ "h42.01", "v-189.67", "h-293.16" ] ],
+    [ "encoder1:VCC", "uno:5V", "red", [ "h53.28", "v115.61", "h-363.07" ] ],
+    [ "encoder1:GND", "uno:GND.2", "black", [ "h35.24", "v96.27", "h-325.86" ] ],
+    [ "lcd1:GND", "rtc1:GND", "black", [ "h-95.15", "v204.76" ] ],
+    [ "lcd1:VCC", "rtc1:5V", "red", [ "h-115.63", "v204.04" ] ],
+    [ "lcd1:SDA", "uno:A4.2", "green", [ "h-69.53", "v147.7", "h245.87" ] ],
+    [ "lcd1:SCL", "uno:A5.2", "green", [ "h-44.65", "v149.18", "h215.13" ] ],
+    [ "bz1:1", "rtc1:GND", "black", [ "v0" ] ],
+    [ "bz1:2", "uno:5", "orange", [ "v171.58", "h480.03" ] ]
+  ],
+  "dependencies": {}
+}
